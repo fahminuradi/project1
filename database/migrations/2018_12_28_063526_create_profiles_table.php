@@ -15,14 +15,12 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foto');
-            $table->string('nama');
-            $table->string('kelas');
-            $table->string('jurusan');
-            $table->string('hari');
-            $table->string('jam');
-            $table->string('nama_guru');
-            $table->string('pelajaran');
+            $table->string('avatar')->default('default.jpg');
+            $table->string('nama',50);
+            $table->string('tempat_lahir',50);
+            $table->date('tanggal_lahir');
+            $table->string('jenis_kelamin',15);
+            $table->integer('no_telp');
             $table->timestamps();
         });
     }
