@@ -1,22 +1,12 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+        <div class="col-md-4">
+            <h3>Selamat anda berhasil masuk</h3>
+        </div>
+        <div class="col-sm-1">
+            <a class="btn btn-sm btn-success" href="{{ route('jadwal.index')}}">Jadwal</a>
         </div>
     </div>
 </div>
