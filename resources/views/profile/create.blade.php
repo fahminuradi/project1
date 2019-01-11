@@ -33,15 +33,14 @@
           <strong>Tanggal Lahir:</strong>
           <input type="date" name="tanggal_lahir" class="form-control">
         </div>
-        <div class="select">
           <strong>Jenis Kelamin</strong>
           <strong>
           <select name="jenis_kelamin">
+            <option value="....">....</option>
             <option value="Laki-Laki">Laki-Laki</option>
             <option value="Perempuan">Perempuan</option>
           </select>
           </strong>
-        </div>
           <div class="col-md-8">
           <strong>Nomor Telepon: </strong>
           <input type="text" name="no_telp" class="form-control" placeholder="masukan no telpon anda">
@@ -50,7 +49,6 @@
   	  	<div class="col-md-3">
   	  	  <a href="{{route('profile.index')}}" class="btn btn-sm btn-danger">Kembali</a>
   	  	  <button type="submit" class="btn btn-sm btn-primary">tambahkan</button>
-          <a href="{{route('grade.create')}}" class="btn btn-sm btn-success">kelas</a>
   	  	</div>
   	  </div>
   	</form>

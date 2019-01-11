@@ -9,11 +9,6 @@
         <a class="btn btn-sm btn-danger" href="{{ route('profile.index') }}">Kembali</a>
       </div>
     </div>
-    <div>
-      <form enctype="multipart/form-data" action="/profile" method="POST">
-			<img src="/uploads/avatars/{{ $profile->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">   
-      </form>
-    </div>
   	<div class="row">
   	  <div class="col-md-12">
   	  	<div class="form-group">
@@ -42,14 +37,15 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Kelas: </strong>
+          <strong>Kelas: </strong> {{$profile->kelas}}
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Jurusan: </strong> 
+          <strong>Jurusan: </strong> {{$profile->jurusan}}
         </div>
       </div>
+</div>
 			<table class="table table-bordered table-sm">
 	  	<tr>
 	  	  <th width="300px"><b>Hari</b></th>

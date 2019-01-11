@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Grade;
@@ -15,9 +16,9 @@ class GradeController extends Controller
      */
     public function index()
     {
-       $grades = Grade::latest()->paginate(5);
-        return view('grade.index', compact('grades'))
-                    ->with('i', (request()->input('page',1) -1)*5);
+        $profiles = Grade::latest()->paginate(5);
+        return view('profile.index', compact('grades'))
+        ->with('i', (request()->input('page',1) -1)*5);
     }
 
     /**
@@ -40,11 +41,17 @@ class GradeController extends Controller
     {
         $request->validate([
             'kelas' => 'required',
-            'jurusan' => 'required'   
+            'jurusan' => 'required'
         ]);
-        Grade::create($request->all());
-        return redirect()->route('grade.index')
-                        ->with('success', 'sebuah data telah di tambahkan');
+        $profiles = DB::table('profiles')->max('id');
+        //Grade::create($request->all());
+        $data= new Grade();
+        $data->profile_id=$profiles;
+        $data->kelas=$request->input('kelas');
+        $data->jurusan=$request->input('jurusan');
+        $data->save();
+        return redirect()->route('profile.index')
+                ->with('success', 'kelas dan jurusan berhasil ditambahkan');
     }
 
     /**
@@ -55,8 +62,8 @@ class GradeController extends Controller
      */
     public function show($id)
     {
-         $grade = grade::find($id);
-        return view('grade.detail', compact('grade'));
+        $grade = Grade::find($id);
+        return view('profile.detail', compact('profile'));
     }
 
     /**
@@ -67,8 +74,7 @@ class GradeController extends Controller
      */
     public function edit($id)
     {
-        $grade = Grade::find($id);
-        return view('grade.edit', compact('grade'));
+        //
     }
 
     /**
@@ -80,16 +86,7 @@ class GradeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'hari' => 'required',
-            'kelas' => 'required'
-          ]);
-          $grade = Grade::find($id);
-          $grade->kelas = $request->get('hari');
-          $grade->jurusan = $request->get('kelas');
-          $profile->save();
-          return redirect()->route('grade.index')
-                          ->with('success', 'sebuah data berhasil di ubah');
+        //
     }
 
     /**
@@ -100,9 +97,6 @@ class GradeController extends Controller
      */
     public function destroy($id)
     {
-        $grade = Grade::find($id);
-        $grade->delete();
-        return redirect()->route('grade.index')
-                        ->with('success', 'sebuah data berhasil dihapus');
+        //
     }
 }

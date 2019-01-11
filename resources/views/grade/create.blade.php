@@ -6,10 +6,9 @@
   		<h3>Masukan Kelas dan Jurusan</h3>
   	  </div>
   	</div>
-
-  	@if ($errors->any())
+    @if ($errors->any())
   	  <div class="alert alert-danger">
-  	  	<strong>maaf, </strong> coba ulangi kembali.<br>
+  	  	<strong>pilih</strong> salah satu option.<br>
   	  	<ul>
   	  	  @foreach ($errors as $error)
   	  	    <li>{{$error}}</li>
@@ -17,15 +16,14 @@
   	  	</ul>
   	  </div>
   	@endif
-
-  	<form action="{{route('profile.store')}}" method="post">
+  	<form action="{{route('grade.store')}}" method="post">
   	  @csrf
     <strong>Masukan Kelas:</strong>
       <h4><select name="kelas">
         <option value="...">...</option>
-        <option value="Sepuluh">Sepuluh</option>
-        <option value="Sebelas">Sebelas</option>
-        <option value="Duabelas">Duabelas</option>
+        <option value="SEPULUH">Sepuluh</option>
+        <option value="SEBELAS">Sebelas</option>
+        <option value="DUABELAS">Duabelas</option>
       </select>
       </h4>
     <strong>Masukan Jurusan:</strong>
@@ -39,7 +37,7 @@
       </select>
       </h4>
   	  	<div class="col-md-3">
-  	  	  <a href="{{route('profile.create')}}" class="btn btn-sm btn-success">Kembali</a>
+  	  	  <a href="{{route('profile.index')}}" class="btn btn-sm btn-success">Kembali</a>
   	  	  <button type="submit" class="btn btn-sm btn-primary">Masuk</button>
   	  	</div>
   	  </div>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Profile;
@@ -13,13 +14,16 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()             
     {
-        $profiles = Profile::latest()->paginate(5);
+        $profiles = DB::table('profiles')
+        ->leftJoin('grades', 'profiles.id', '=', 'grades.profile_id')
+        ->select('profiles.*', 'grades.kelas', 'grades.jurusan')
+        ->get();
         return view('profile.index', compact('profiles'))
-                    ->with('i', (request()->input('page',1) -1)*5);
+                ->with('i', (request()->input('page',1) -1)*5);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -38,23 +42,16 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $data = request()->validate([
             'nama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
-            'no_telp' => 'required'   
+            'no_telp' => 'required'    
         ]);
-        Profile::create($request->all());
+        Profile::create($data);
         return redirect()->route('profile.index')
-                        ->with('success', 'sebuah data telah di tambahkan');
-        $request->validate([
-            'kelas' => 'required',
-            'jurusan' => 'required'
-        ]);
-        Grade::create($request->all());
-        return redirect()->route('profile.show')
-                        ->with('success', 'kelas di tambahkan');
+                         ->with('success', 'telah di tambahkan');
     }
 
     /**
@@ -66,7 +63,7 @@ class ProfileController extends Controller
     public function show($id)
     {
         $profile = Profile::find($id);
-        return view('profile.detail', compact('profile'));
+        return view('profile.detail', compact('grade'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -94,7 +91,7 @@ class ProfileController extends Controller
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
-            'alamat' => 'required'
+            'no_telpon' => 'required'
           ]);
           $profile = Profile::find($id);
           $profile->nama = $request->get('nama');
@@ -104,7 +101,7 @@ class ProfileController extends Controller
           $profile->no_telp = $request->get('no_telp');
           $profile->save();
           return redirect()->route('profile.index')
-                          ->with('success', 'sebuah data berhasil di ubah');
+                           ->with('success', 'sebuah data berhasil di ubah');
     }
 
     /**
