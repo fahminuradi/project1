@@ -20,7 +20,7 @@
 
   	<form action="{{route('jadwal.store')}}" method="post" enctype="multipart/form-data">
   	  @csrf
-        <img src="/uploads/avatars/default.jpg" style="width: 150px; height: 150px; border-radius: 50%; margin-right: 25px;">
+        <img src="/uploads/avatars/default.jpg"  style="width: 150px; height: 150px; border-radius: 50%; margin-right: 25px;">
         <div class="form-group">
           <strong>Pilih gambar</strong>
           <input type="file" name="avatar">

@@ -64,6 +64,7 @@ class JadwalController extends Controller
         $data->guru5 = $request->input('guru5');
         $path = $request->file('avatar')->store('avatars');
         $data->avatar=$path;
+        echo asset('storage/file.txt');
         //$fileName = rand(300,300).'.'.$ext;
         //$file->move('uploads/avatars',$fileName);
         $data->save();
