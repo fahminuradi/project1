@@ -18,10 +18,17 @@
   	  </div>
   	@endif
 
-  	<form action="{{route('profile.update',$profile->id)}}" method="post">
+  	<form action="{{route('profile.update',$profile->id)}}" method="post" enctype="multipart/form-data">
   	  @csrf
       @method('PUT')
   	  <div class="row">
+        <div class="col-md-5"> 
+          <img src="{{Storage::url($profile->avatar)}}" style="width: 150px; height: 150px; border-radius: 50%; margin-right: 25px;">
+          <strong>Pilih Gambar</strong>
+          <input type="file" name="avatar" value="{{$profile->avatar}}">
+        </div>
+      </div>
+      <div class="row">
   	  	<div class="col-md-5">
   	  	  <strong>Nama: </strong>
   	  	  <input type="text" name="nama" class="form-control" value="{{$profile->nama}}">
@@ -47,7 +54,26 @@
             <option value="Perempuan">Perempuan</option>
           </select>
           </strong>
-        </div>
+       
+				<div>
+				<strong>Ubah Kelas:</strong>
+      <h4><select name="kelas">
+        <option value="...">...</option>
+        <option value="Sepuluh">Sepuluh</option>
+        <option value="Sebelas">Sebelas</option>
+        <option value="Duabelas">Duabelas</option>
+      </select>
+      </h4>
+    <strong>ubah Jurusan:</strong>
+      <h4><select name="jurusan">
+        <option value="...">...</option>
+        <option value="Teknik Kendaraan Ringan Otomotif">Teknik Kendaraan Ringan Otomotif</option>
+        <option value="Teknik Bisnis Sepeda Motor">Teknik Bisnis Sepeda Motor</option>
+        <option value="Teknik Komputer Jaringan">Teknik Komputer Jaringan</option>
+        <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+        <option value="Farmasi">Farmasi</option>
+      </select>
+			</div>
   	  	<div class="col-md-12">
   	  	  <a href="{{route('profile.index')}}" class="btn btn-sm btn-success">kembali</a>
   	  	  <button type="submit" class="btn btn-sm btn-primary">Ubah</button>

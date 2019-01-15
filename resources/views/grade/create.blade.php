@@ -21,9 +21,9 @@
     <strong>Masukan Kelas:</strong>
       <h4><select name="kelas">
         <option value="...">...</option>
-        <option value="SEPULUH">Sepuluh</option>
-        <option value="SEBELAS">Sebelas</option>
-        <option value="DUABELAS">Duabelas</option>
+        <option value="Sepuluh">Sepuluh</option>
+        <option value="Sebelas">Sebelas</option>
+        <option value="Dua Belas">Dua belas</option>
       </select>
       </h4>
     <strong>Masukan Jurusan:</strong>

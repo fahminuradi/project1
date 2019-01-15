@@ -62,8 +62,10 @@ class GradeController extends Controller
      */
     public function show($id)
     {
-        $grade = Grade::find($id);
-        return view('profile.detail', compact('profile'));
+        $data->profile_id=$profiles;
+        $data->kelas=$request->get('kelas');
+        $data->jurusan=$request->get('jurusan');
+         return view('profile.detail', compact('grades'));
     }
 
     /**
@@ -74,7 +76,8 @@ class GradeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $profile = Profile::find($id);
+        return view('profile.edit', compact('profile'));
     }
 
     /**
