@@ -4,7 +4,7 @@
 	<div class="container">
 	  <div class="row">
 	  	<div class="col-sm-9">
-	  	  <h3>Data Siswa</h3>
+	  	  <h3>Halaman Biodata</h3>
 	  	</div>
 	  	<strong>Tambahkan:
 	  	  	  	<a class="btn btn-sm btn-primary" href="{{route('profile.create')}}">profile</a>

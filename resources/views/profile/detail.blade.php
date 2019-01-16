@@ -9,8 +9,6 @@
         <a class="btn btn-sm btn-danger" href="{{ route('profile.index') }}">Kembali</a>
       </div>
     </div>
-  @foreach($profile as $profile)
-  <img src="{{Storage::url($profile->avatar)}}" style="width: 150px; height: 150px; border-radius: 50%; margin-right: 25px;">
   	<div class="row">
   	  <div class="col-md-12">
   	  	<div class="form-group">
@@ -46,9 +44,8 @@
         <div class="form-group">
           <strong>Jurusan: </strong> {{$profile->jurusan}}
         </div>
-      </div>  
-    </div>
-    @endforeach
+      </div>
+</div>
 			<table class="table table-bordered table-sm">
 	  	<tr>
 	  	  <th width="300px"><b>Hari</b></th>

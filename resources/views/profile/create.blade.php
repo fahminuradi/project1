@@ -18,13 +18,8 @@
   	  </div>
   	@endif
 
-  	<form action="{{route('profile.store')}}" method="post" enctype="multipart/form-data">
-			@csrf
-			<img src="/uploads/avatars/default.jpg" style="width: 150px; height= 150px; border-radius: 50%; margin-right: 10px;">
-			<div class="form-group">
-				<strong>pilih gambar</strong>
-				<input type="file" name="avatar">
-			</div>
+  	<form action="{{route('profile.store')}}" method="post">
+  	  @csrf
   	  <div class="row">
   	  	<div class="col-md-8">
   	  	  <strong>Nama: </strong>

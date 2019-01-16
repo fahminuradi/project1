@@ -20,7 +20,7 @@ class CreateProfilesTable extends Migration
             $table->string('tempat_lahir',50);
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin',15);
-            $table->string('no_telp',20);
+            $table->integer('no_telp');
             $table->timestamps();
         });
     }
