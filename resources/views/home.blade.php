@@ -4,19 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+           <h1>selamat datang <b>{{ Auth::user()->name }}</b></h1>Semoga hari mu menyenangkan <br>tambah biodata? lihat bioadata?mudahh... <br><a href="{{route('profile.index')}}">masuk</a> disini untuk melanjutkan <br>
         </div>
     </div>
 </div>

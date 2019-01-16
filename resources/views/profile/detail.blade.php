@@ -11,6 +11,7 @@
     </div>
     @foreach ($profile as $profile)
   	<div class="row">
+    <img src="" alt="">
   	  <div class="col-md-12">
   	  	<div class="form-group">
   	  	  <strong>Nama: </strong> {{$profile->nama}}

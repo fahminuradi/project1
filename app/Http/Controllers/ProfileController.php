@@ -57,8 +57,8 @@ class ProfileController extends Controller
        $data->tanggal_lahir = $request->input('tanggal_lahir');
        $data->jenis_kelamin = $request->input('jenis_kelamin');
        $data->no_telp = $request->input('no_telp');
-       $path = $request->file('avatar')->store('avatars');
-       $data->avatar=$path;
+    //    $path = $request->file('avatar')->store('avatars');
+    //    $data->avatar=$path;
        $data->save();
        //Profile::create($data);
        return redirect()->route('profile.index', compact('profile'))
@@ -116,8 +116,8 @@ class ProfileController extends Controller
          $profile->tanggal_lahir = $request->get('tanggal_lahir');
          $profile->jenis_kelamin = $request->get('jenis_kelamin');
          $profile->no_telp = $request->get('no_telp');
-         $path = $request->file('avatar')->store('avatars');
-         $profile->avatar=$path;
+        //  $path = $request->file('avatar')->store('avatars');
+        //  $profile->avatar=$path;
          $profile->save();
          $data=Grade::where('profile_id',$id)->first();
          $data->kelas = $request->get('kelas');
@@ -139,5 +139,9 @@ class ProfileController extends Controller
         $profile->delete();
         return redirect()->route('profile.index')
                         ->with('success', 'sebuah data berhasil dihapus');
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }
