@@ -9,6 +9,7 @@
         <a class="btn btn-sm btn-danger" href="{{ route('profile.index') }}">Kembali</a>
       </div>
     </div>
+    @foreach ($profile as $profile)
   	<div class="row">
   	  <div class="col-md-12">
   	  	<div class="form-group">
@@ -45,6 +46,7 @@
           <strong>Jurusan: </strong> {{$profile->jurusan}}
         </div>
       </div>
+      @endforeach
 </div>
 			<table class="table table-bordered table-sm">
 	  	<tr>

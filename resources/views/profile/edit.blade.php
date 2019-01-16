@@ -38,7 +38,7 @@
           <strong>No Telpon :</strong>
           <input type="text" name="no_telp" class="form-control" value="{{$profile->no_telp}}">
         </div>
-        <div class="select">
+        <div class="col-md-10">
           <strong>Jenis Kelamin</strong>
           <strong>
           <select name="jenis_kelamin">
@@ -47,6 +47,26 @@
             <option value="Perempuan">Perempuan</option>
           </select>
           </strong>
+        </div>
+        <div class="col-md-10">
+        <strong>Ubah Kelas:</strong>
+      <h4><select name="kelas">
+        <option value="...">...</option>
+        <option value="SEPULUH">Sepuluh</option>
+        <option value="SEBELAS">Sebelas</option>
+        <option value="DUABELAS">Duabelas</option>
+      </select>
+      </h4>
+    <strong>Ubah Jurusan:</strong>
+      <h4><select name="jurusan">
+        <option value="...">...</option>
+        <option value="Teknik Kendaraan Ringan Otomotif">Teknik Kendaraan Ringan Otomotif</option>
+        <option value="Teknik Bisnis Sepeda Motor">Teknik Bisnis Sepeda Motor</option>
+        <option value="Teknik Komputer Jaringan">Teknik Komputer Jaringan</option>
+        <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+        <option value="Farmasi">Farmasi</option>
+      </select>
+      </h4>
         </div>
   	  	<div class="col-md-12">
   	  	  <a href="{{route('profile.index')}}" class="btn btn-sm btn-success">kembali</a>
