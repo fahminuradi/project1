@@ -15,9 +15,6 @@
         <th width="300px">Pelajaran</th>
       </tr>
       <tr>
-        <img src="{{Storage::url($jadwal->avatar)}}" style="width: 150px; height: 150px; border-radius: 50%; margin-right: 25px;">
-      </tr>
-      <tr>
         <td> SENIN </td>
         <td>{{$jadwal->guru1}}</td>
         <td>{{$jadwal->mapel1}}</td>
