@@ -18,14 +18,9 @@
   	  </div>
   	@endif
 
-  	<form action="{{route('jadwal.store')}}" method="post" enctype="multipart/form-data">
+  	<form action="{{route('jadwal.store')}}" method="post">
   	  @csrf
-        <img src="/uploads/avatars/default.jpg"  style="width: 150px; height: 150px; border-radius: 50%; margin-right: 25px;">
-        <div class="form-group">
-          <strong>Pilih gambar</strong>
-          <input type="file" name="avatar">
-        </div>
-  	  	<div class="col-md-5">
+    	  	<div class="col-md-5">
   	  	  <h3>SENIN</h3>
   	  	</div>
   	  	<div class="col-md-5">

@@ -39,7 +39,6 @@ class JadwalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'avatar' => 'required',
             'mapel1' => 'required',
             'mapel2' => 'required',
             'mapel3' => 'required',
@@ -62,9 +61,8 @@ class JadwalController extends Controller
         $data->guru3 = $request->input('guru3');
         $data->guru4 = $request->input('guru4');
         $data->guru5 = $request->input('guru5');
-        $path = $request->file('avatar')->store('avatars');
-        $data->avatar=$path;
-        echo asset('storage/file.txt');
+        //$path = $request->file('avatar')->store('avatars');
+        //$data->avatar=$path;
         //$fileName = rand(300,300).'.'.$ext;
         //$file->move('uploads/avatars',$fileName);
         $data->save();
