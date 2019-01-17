@@ -103,7 +103,6 @@ class JadwalController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'avatar' => 'required',
             'mapel1' => 'required',
             'mapel2' => 'required',
             'mapel3' => 'required',
@@ -116,7 +115,6 @@ class JadwalController extends Controller
             'guru5' => 'required'
         ]);
         $jadwal = Jadwal::find($id);
-
         $jadwal->mapel1 = $request->input('mapel1');
         $jadwal->mapel2 = $request->input('mapel2');
         $jadwal->mapel3 = $request->input('mapel3');
@@ -127,8 +125,6 @@ class JadwalController extends Controller
         $jadwal->guru3 = $request->input('guru3');
         $jadwal->guru4 = $request->input('guru4');
         $jadwal->guru5 = $request->input('guru5');
-        $path = $request->file('avatar')->store('avatars');
-        $jadwal->avatar=$path;
         $jadwal->save();
         return redirect()->route('jadwal.index')
                         ->with('success', 'Biodata murid berhasil diubah');

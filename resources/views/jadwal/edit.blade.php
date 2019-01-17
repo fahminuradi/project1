@@ -18,12 +18,9 @@
   	  </div>
   	@endif
 
-    <form action="{{route('jadwal.update',$jadwal->id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('jadwal.update',$jadwal->id)}}" method="post">
       @csrf
       @method('PUT')
-      <img src="{{Storage::url($jadwal->avatar)}}" style="width: 150px; height: 150px; border-radius: 50%; margin-right: 25px;">
-      <strong>Pilih gambar</strong>
-      <input type="file" name="avatar" value="{{$jadwal->avatar}}">
       <div class="col-md-5">
           <h3>SENIN</h3>
         </div>
