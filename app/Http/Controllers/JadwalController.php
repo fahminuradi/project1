@@ -17,7 +17,7 @@ class JadwalController extends Controller
     public function index()
     {
         $jadwals = Jadwal::latest()->paginate(5);
-        return view('profile.index', compact('jadwals'))
+        return view('profile.indexs', compact('jadwals'))
                 ->with('i', (request()->input('page',1) -1)*5);
     }
 
