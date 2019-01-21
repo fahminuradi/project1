@@ -9,7 +9,7 @@
 
   	@if ($errors->any())
   	  <div class="alert alert-danger">
-  	  	<strong>Maaf!!! </strong> Mungkin anda salah memasukkan kata kunci.<br>
+  	  	<strong>Maaf!!! </strong> Masukan kembali<br>
   	  	<ul>
   	  	  @foreach ($errors as $error)
   	  	    <li>{{$error}}</li>
@@ -77,7 +77,7 @@
   	  	</div>
 
   	  	<div class="col-md-12">
-  	  	  <a href="{{route('jadwal.index')}}" class="btn btn-sm btn-success">Kembali</a>
+  	  	  <a href="{{route('profile.index')}}" class="btn btn-sm btn-success">Kembali</a>
   	  	  <button type="submit" class="btn btn-sm btn-primary">Tambahkan</button>
   	  	</div>
   	  </div>

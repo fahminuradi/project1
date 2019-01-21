@@ -18,4 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 route::resource('jadwal', 'JadwalController');
+route::resource('profile', 'ProfileController');
+route::resource('grade', 'GradeController');
+Route::get('profile/{name?}', function ($name = null) {
+    return $name;
+});

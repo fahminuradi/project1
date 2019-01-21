@@ -15,6 +15,7 @@ class CreateJadwalsTable extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('profile_id');
             $table->string('mapel1',100);
             $table->string('mapel2',100);
             $table->string('mapel3',100);
