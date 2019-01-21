@@ -5,10 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Jadwal;
-<<<<<<< HEAD
 use App\Profile;
-=======
->>>>>>> reza
 
 class JadwalController extends Controller
 {
@@ -54,7 +51,6 @@ class JadwalController extends Controller
             'guru4' => 'required',
             'guru5' => 'required'
         ]);
-<<<<<<< HEAD
         // $data = new \App\Jadwal();
         $profiles = DB::table('profiles')->max('id');
         //Grade::create($request->all());
@@ -77,7 +73,6 @@ class JadwalController extends Controller
         $file->save();
         return redirect()->route('profile.index')
                         ->with('success', 'jadwal berhasil ditambahkan');
-=======
         $data = new \App\Jadwal();
         $data->mapel1 = $request->input('mapel1');
         $data->mapel2 = $request->input('mapel2');
@@ -91,7 +86,6 @@ class JadwalController extends Controller
         $data->guru5 = $request->input('guru5');
         $data->save();
         return redirect()->route('jadwal.index', compact('jadwal'));
->>>>>>> reza
     }
 
     /**
