@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Jadwal;
-use Illuminate\Support\Facades\Storage;
 
 class JadwalController extends Controller
 {
@@ -61,10 +60,6 @@ class JadwalController extends Controller
         $data->guru3 = $request->input('guru3');
         $data->guru4 = $request->input('guru4');
         $data->guru5 = $request->input('guru5');
-        //$path = $request->file('avatar')->store('avatars');
-        //$data->avatar=$path;
-        //$fileName = rand(300,300).'.'.$ext;
-        //$file->move('uploads/avatars',$fileName);
         $data->save();
         return redirect()->route('jadwal.index', compact('jadwal'));
     }
